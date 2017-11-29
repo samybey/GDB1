@@ -21,6 +21,8 @@ db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localFiel
 
 ## 4 - trouver les groupes dans lesquels sont les utilisateurs
 
+db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", foreignField: "members.user_name", as:"profiles_groups"}}  ] )
+
 
 
 ############brouillon en dessous
