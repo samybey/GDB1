@@ -1,4 +1,4 @@
-#### 1 - return the number of likes per post
+## 1 - Number of likes per post
 db.posts.aggregate(
    [
       {
@@ -10,18 +10,32 @@ db.posts.aggregate(
    ]
 )
 
-##amis en commun entre deux utilisateurs
+## 2 - amis en commun entre deux utilisateurs
+
 
 
 ## 3 - trouver les profils des membres du groupe Dubstep Producers
 
+db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localField: "members.user_name", foreignField:"user_name", as:"member_profiles" }}, {$match : {"member_profiles": {$ne: []}}},{$match : {"name":"Dubstep Producers"}} , { $project: { "member_profiles.user_name":1 } }   ]).pretty()
 
-
-db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localField: "members.user_name", foreignField:"user_name", as:"member_profiles" }}, {$match : {"member_profiles": {$ne: []}}},{$match : {"name":"Dubstep Producers"}}]).pretty()
 
 ## 4 - trouver les groupes dans lesquels sont les utilisateurs
 
-db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", foreignField: "members.user_name", as:"profiles_groups"}}  ] )
+db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", foreignField: "members.user_name", as:"profiles_groups"}}, { $project:{"user_name":1, "profiles_groups.name":1 } } ] ).pretty()
+
+
+## 5 - l utilisateur ayant liké le plus de 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
