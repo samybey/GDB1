@@ -1,4 +1,5 @@
 {
+"_id" : 1,
 "age": 21,
 "city": "Nantes",
 "email": "cgaunet@mail.com",
@@ -6,6 +7,7 @@
 "friends": [{"user_name":"inconnufragile"},{"user_name":"Andy_M"},{"user_name":"Dj_Snake_Official"},{"user_name":"DavidGuetta"}]
 }
 {
+"_id" : 2,
 "age": 22,
 "city": "Brest",
 "email": "sbeyou@mail.com",
@@ -14,18 +16,21 @@
 
 }
 {
+"_id" : 3,
 "age": 22,
 "city": "Toulouse",
 "email": "nfollet@mail.com",
 "user_name": "folletfragile"
 }
 {
+"_id" : 4,
 "age": 23,
 "city": "grenoble",
 "email": "inconnu1@mail.com",
 "user_name": "inconnufragile"
 }
 {
+"_id" : 5,
 "age": 18,
 "city": "Saint-Martin D'heres",
 "email": "toto@gmail.nz",
@@ -33,6 +38,7 @@
 "friends": [{"user_name":"folletfragile"},{"user_name":"pat_gal_278"},{"user_name":"pat_gal_278"},{"user_name":"Un_Nouvel_Utilisateur"},{"user_name":"JeanJean"},{"user_name":"GucciGang"},{"user_name":"samplifragile"}]
 }
 {
+"_id" : 6,
 "age": 37,
 "city": "London",
 "email": "patrickgalles@mailmail.uk",
@@ -40,26 +46,28 @@
 "friends": [{"user_name":"JeanJean"},{"user_name":"Andy_M"}]
 }
 {
+"_id" : 7,
 "age": 79,
 "city": "Toulouse",
 "email": "NouvelUtilisateur@hotmail.hm",
 "user_name": "Un_Nouvel_Utilisateur"
 }
 {
+"_id" : 8,
 "age": 42,
 "city": "Paris",
-"email": "JeanDupont@BPIA.com",
 "user_name": "JeanJean",
 "friends": [{"user_name":"Dj_Snake_Official"},{"user_name":"DavidGuetta"},{"user_name":"GucciGang"},{"user_name":"Un_Nouvel_Utilisateur"}]
 
 }
 {
+"_id" : 9,
 "age": 16,
 "city": "Rennes",
-"email": "AndyMamphis@hello.ge",
 "user_name": "Andy_M"
 }
 {
+"_id" : 10,
 "age": 33,
 "city": "Saint-Denis",
 "email": "Will@DjSnake.fr",
@@ -67,12 +75,14 @@
 "friends": [{"user_name":"DavidGuetta"},{"user_name":"GucciGang"},{"user_name":"Un_Nouvel_Utilisateur"}]
 }
 {
+"_id" : 11,
 "age": 27,
 "city": "Paris",
 "email": "Guetta@DG.com",
 "user_name": "DavidGuetta"
 }
 {
+"_id" : 12,
 "age": 17,
 "city": "Miami",
 "email": "Boss@LilPump.com",
