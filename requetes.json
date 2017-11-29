@@ -1,0 +1,62 @@
+#### 1 - return the number of likes per post
+db.posts.aggregate(
+   [
+      {
+         $project: {
+            item: 1,
+            numberOfLikes: { $size: "$likes" }
+         }
+      }
+   ]
+)
+
+##amis en commun entre deux utilisateurs
+
+
+## 3 - trouver les profils des membres du groupe Dubstep Producers
+
+
+
+db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localField: "members.user_name", foreignField:"user_name", as:"member_profiles" }}, {$match : {"member_profiles": {$ne: []}}},{$match : {"name":"Dubstep Producers"}}]).pretty()
+
+## 4 - trouver les groupes dans lesquels sont les utilisateurs
+
+
+
+############brouillon en dessous
+db.profiles.aggregate(
+    [   
+	{
+	    $lookup:
+	    {
+		from: "profiles",
+		localField: "user_name",
+		foreignField: "user_name",
+		as: "newfriends"
+	    }
+	    
+	},
+	{
+	    $match:  { "user_name":"samplifragile"}
+	},
+	{
+	    $match: { "newfriends": { "user_name":"samplifragile"} }
+	},
+	
+    ]
+)
+
+db.profiles.aggregate([{$lookup: {from: "profiles",localField: "user_name",foreignField: "user_name",as: "newfriends"}},{$match: {"user_name":"samplifragile"}}, {$match: {"newfriends.user_name":"cgaunetfragile"}}]).pretty()
+
+
+var profile1 = db.profiles.find({"user_name":"samplifragile"})
+var profile2 = db.profiles.find({"user_name":"cgaunetfragile"})
+
+##now compare friends in both profiles
+
+db.profiles.find( { $where : "profile1.friends.user_name = profile2.friends.user_name " } )
+
+
+
+var profile3 = db.profiles.aggregate([{"$match": {"user_name": "samplifragile"}} ])
+
