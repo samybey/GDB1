@@ -1,0 +1,14 @@
+{
+"user_name":"cgaunetfragile",
+"likes" : [{"user_name":"samplifragile"},{"user_name":"cgaunetfragile"},{"user_name":"GucciGang"},{"user_name":"Andy_M"}],
+"reactions": [{"user_name":"samplifragile" ,"likes": [{"user_name" : "cgaunetfragile"}], "date" : "2016-05-18T16:00:00Z","texte" : "On est bien d'accord"}],
+"post_id": 2,
+"texte":"C'est vraiment bien !"
+}
+{
+"user_name":"Andy_M",
+"likes" : [{"user_name":"samplifragile"},{"user_name":"cgaunetfragile"},{"user_name":"GucciGang"},{"user_name":"Andy_M"}],
+"reactions": [],
+"post_id": 1,
+"texte":"Mais... Pourquoi ?"
+}
