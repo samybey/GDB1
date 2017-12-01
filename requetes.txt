@@ -18,16 +18,21 @@ db.friendships.aggregate([{$match: {"user_name": {$in: ["cyrilfragile","samplifr
 
 db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localField: "members.user_name", foreignField:"user_name", as:"member_profiles" }}, {$match : {"member_profiles": {$ne: []}}},{$match : {"name":"Dubstep Producers"}} , { $project: { "member_profiles.user_name":1 } }   ]).pretty()
 
-INDEX  :
 
 ## 4 - trouver les groupes dans lesquels sont les utilisateurs
 
 db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", foreignField: "members.user_name", as:"profiles_groups"}}, { $project:{"user_name":1, "profiles_groups.name":1 } } ] ).pretty()
 
-INDEx : 
 
-## 5 - l utilisateur ayant liké le plus de 
+## 5 - le nombre de likes sur le post ayant le plus de likes
 
+db.posts.aggregate(
+	[
+		{"$project":{"numFields":{"$size":"$likes"}}},
+		{"$group":{"_id":null, "fields":{"$sum":"$numFields"}, "docs":{"$sum":1}}},
+		{"$project":{"total":{"$subtract":["$fields", "$docs"]}, _id:0}}
+	]
+)	
 
 
 
