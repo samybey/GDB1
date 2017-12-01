@@ -1,5 +1,6 @@
 {
 "user_name":"cgaunetfragile",
+ "date" : "2016-05-18T16:00:00Z",
 "likes" : [{"user_name":"samplifragile"},{"user_name":"cgaunetfragile"},{"user_name":"GucciGang"},{"user_name":"Andy_M"}],
 "reactions": [{"user_name":"samplifragile" ,"likes": [{"user_name" : "cgaunetfragile"}], "date" : "2016-05-18T16:00:00Z","texte" : "On est bien d'accord"}],
 "post_id": 2,
@@ -7,6 +8,7 @@
 }
 {
 "user_name":"Andy_M",
+ "date" : "2016-06-18T16:00:00Z",
 "likes" : [{"user_name":"samplifragile"},{"user_name":"cgaunetfragile"},{"user_name":"GucciGang"},{"user_name":"Andy_M"}],
 "reactions": [],
 "post_id": 1,

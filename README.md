@@ -19,12 +19,8 @@ git clone
 mongod --shardsvr --dbpath GDB1 --port 27021 &
 
 #lancer une deuxième console
-mongoimport --host localhost:27021 --db test --collection profiles --drop --file datasetSocialNetwork.json
-mongoimport --host localhost:27021 --db test --collection posts --drop --file datasetStatus.json
-mongo --host localhost:27021
-
-#ouverture de la commande mongo
-
+-Aller dans le dossier cloné auparavant
+sh init.sh
 
 #pour quitter
 mongod --shutdown --dbpath GDB1
