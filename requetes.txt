@@ -19,7 +19,7 @@ db.friendships.aggregate([{$match: {"user_name": {$in: ["cyrilfragile","samplifr
 db.groups.aggregate([{$unwind: "$members"},{$lookup: {from:"profiles", localField: "members.user_name", foreignField:"user_name", as:"member_profiles" }}, {$match : {"member_profiles": {$ne: []}}},{$match : {"name":"Dubstep Producers"}} , { $project: { "member_profiles.user_name":1 } }   ]).pretty()
 
 
-## 4 - trouver les groupes dans lesquels sont les utilisateurs
+## 4 - lister les groupes dans lesquels sont les users
 
 db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", foreignField: "members.user_name", as:"profiles_groups"}}, { $project:{"user_name":1, "profiles_groups.name":1 } } ] ).pretty()
 
@@ -33,53 +33,3 @@ db.posts.aggregate(
 		{"$project":{"total":{"$subtract":["$fields", "$docs"]}, _id:0}}
 	]
 )	
-
-
-
-
-
-
-
-
-
-
-
-
-
-############brouillon en dessous
-db.profiles.aggregate(
-    [   
-	{
-	    $lookup:
-	    {
-		from: "profiles",
-		localField: "user_name",
-		foreignField: "user_name",
-		as: "newfriends"
-	    }
-	    
-	},
-	{
-	    $match:  { "user_name":"samplifragile"}
-	},
-	{
-	    $match: { "newfriends": { "user_name":"samplifragile"} }
-	},
-	
-    ]
-)
-
-db.profiles.aggregate([{$lookup: {from: "profiles",localField: "user_name",foreignField: "user_name",as: "newfriends"}},{$match: {"user_name":"samplifragile"}}, {$match: {"newfriends.user_name":"cgaunetfragile"}}]).pretty()
-
-
-var profile1 = db.profiles.find({"user_name":"samplifragile"})
-var profile2 = db.profiles.find({"user_name":"cgaunetfragile"})
-
-##now compare friends in both profiles
-
-db.profiles.find( { $where : "profile1.friends.user_name = profile2.friends.user_name " } )
-
-
-
-var profile3 = db.profiles.aggregate([{"$match": {"user_name": "samplifragile"}} ])
-
