@@ -26,10 +26,5 @@ db.profiles.aggregate( [ {$lookup: {from : "groups", localField: "user_name", fo
 
 ## 5 - le nombre de likes sur le post ayant le plus de likes
 
-db.posts.aggregate(
-	[
-		{"$project":{"numFields":{"$size":"$likes"}}},
-		{"$group":{"_id":null, "fields":{"$sum":"$numFields"}, "docs":{"$sum":1}}},
-		{"$project":{"total":{"$subtract":["$fields", "$docs"]}, _id:0}}
-	]
-)	
+
+db.posts.aggregate( [ {"$project":{"numFields":{"$size":"$likes"}}}, {$group :{_id:"_id", maxlikes: {$max: "$numFields"}}}]) 
